@@ -1,0 +1,196 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .brainrot-button {
+    @apply px-8 py-4 text-xl font-bold rounded-lg shadow-lg transform transition-all duration-300 
+    hover:animate-shake active:scale-95 focus:outline-none relative overflow-hidden;
+  }
+
+  .red-theme {
+    @apply bg-theme-red-background text-white min-h-screen;
+  }
+  
+  .red-theme .brainrot-button {
+    @apply bg-theme-red-button text-black hover:animate-glow relative;
+  }
+
+  .blue-theme {
+    @apply bg-theme-blue-background text-black min-h-screen;
+  }
+  
+  .blue-theme .brainrot-button {
+    @apply bg-theme-blue-button text-white hover:animate-glow relative;
+  }
+
+  .purple-theme {
+    @apply bg-theme-purple-background text-white min-h-screen;
+  }
+  
+  .purple-theme .brainrot-button {
+    @apply bg-theme-purple-button text-black hover:animate-glow relative;
+  }
+
+  .blackout {
+    @apply bg-black text-white font-mono text-4xl flex items-center justify-center;
+  }
+
+  .gojo-container {
+    @apply relative overflow-hidden rounded-xl shadow-xl;
+  }
+
+  .sparkle {
+    @apply absolute bg-white rounded-full animate-sparkle z-10;
+  }
+  
+  .gojo-image {
+    @apply w-full h-full object-cover animate-float;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-1px) rotate(0.5deg); 
+  }
+  50% { 
+    transform: translateY(-2px) rotate(-0.5deg); 
+  }
+  75% { 
+    transform: translateY(-1px) rotate(0.25deg); 
+  }
+}
+
+@keyframes sparkle {
+  0% { 
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(0.6);
+  }
+  100% { 
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { 
+    transform: translateX(0); 
+  }
+  10%, 30%, 50%, 70%, 90% { 
+    transform: translateX(-5px); 
+  }
+  20%, 40%, 60%, 80% { 
+    transform: translateX(5px); 
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  }
+}

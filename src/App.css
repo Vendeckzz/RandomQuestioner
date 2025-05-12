@@ -1,0 +1,302 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Theme-specific styles */
+.red-theme {
+  background: linear-gradient(135deg, #ff4d4d 0%, #720017 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+.blue-theme {
+  background: linear-gradient(135deg, #4d79ff 0%, #00174d 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+.purple-theme {
+  background: linear-gradient(135deg, #9c4dff 0%, #4a0072 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Brainrot button styling */
+.brainrot-button {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.6em 1.2em;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.brainrot-button:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.brainrot-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for sparkles */
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.sparkle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: sparkle 3s infinite;
+  pointer-events: none;
+}
+
+/* Gojo image animations */
+.gojo-container {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.gojo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.happy-animation .gojo-image {
+  animation: pulse 2s infinite;
+  border: 3px solid gold;
+}
+
+.annoyed-animation .gojo-image {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  border: 3px solid red;
+}
+
+.domain-expansion {
+  transform: scale(1.2);
+}
+
+.domain-expansion .gojo-image {
+  filter: hue-rotate(180deg) brightness(1.5);
+  border: 3px solid cyan;
+  box-shadow: 0 0 20px cyan;
+}
+
+body.blackout {
+  background-color: black !important;
+  transition: background-color 2s ease;
+}
+
+.ip-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash {
+  animation: flash-animation 0.15s ease;
+}
+
+@keyframes flash-animation {
+  0% {
+    background-color: black;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.meme-container img {
+  max-height: 250px;
+  object-fit: contain;
+}
+
+/* General animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease forwards;
+}
+
+/* Corner click easter egg */
+.corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Questionnaire container */
+.questionnaire {
+  position: relative;
+  padding: 1rem;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Explosion overlay styles */
+.explosion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  animation: flash-zoom 1s ease-out;
+}
+
+@keyframes flash-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
